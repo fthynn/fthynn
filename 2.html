@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fatih Yenen - Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-card: #1a1a26;
+            --accent-primary: #00ff88;
+            --accent-secondary: #00ccff;
+            --text-primary: #e8e8f0;
+            --text-secondary: #9999aa;
+            --gradient-1: linear-gradient(135deg, #00ff88 0%, #00ccff 100%);
+            --gradient-2: linear-gradient(135deg, rgba(0,255,136,0.1) 0%, rgba(0,204,255,0.1) 100%);
+            --shadow-glow: 0 0 40px rgba(0,255,136,0.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Animated Background */
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+            opacity: 0.4;
+        }
+
+        .bg-animation::before {
+            content: '';
+            position: absolute;
+            width: 150%;
+            height: 150%;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(0,255,136,0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(0,204,255,0.15) 0%, transparent 50%),
+                radial-gradient(circle at 40% 20%, rgba(0,255,136,0.1) 0%, transparent 40%);
+            animation: bgFloat 20s ease-in-out infinite;
+        }
+
+        @keyframes bgFloat {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(50px, -50px) scale(1.1); }
+            66% { transform: translate(-50px, 50px) scale(0.9); }
+        }
+
+        /* Container */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Header/Hero */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: 100px 0;
+        }
+
+        .hero-content {
+            text-align: center;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            padding: 8px 20px;
+            background: var(--gradient-2);
+            border: 1px solid var(--accent-primary);
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 30px;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .hero h1 {
+            font-size: clamp(3rem, 8vw, 7rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: fadeInUp 1s ease-out 0.2s backwards;
+        }
+
+        .hero h2 {
+            font-size: clamp(1.5rem, 3vw, 2.5rem);
+            font-weight: 400;
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+            animation: fadeInUp 1s ease-out 0.4s backwards;
+        }
+
+        .hero-description {
+            max-width: 700px;
+            margin: 0 auto 50px;
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            animation: fadeInUp 1s ease-out 0.6s backwards;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease-out 0.8s backwards;
+        }
+
+        .btn {
+            padding: 16px 40px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: var(--gradient-1);
+            color: var(--bg-primary);
+            box-shadow: var(--shadow-glow);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 60px rgba(0,255,136,0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--accent-primary);
+            border: 2px solid var(--accent-primary);
+        }
+
+        .btn-secondary:hover {
+            background: var(--gradient-2);
+            transform: translateY(-3px);
+        }
+
+        /* Stats Section */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin: 80px 0;
+            animation: fadeInUp 1s ease-out 1s backwards;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 40px 20px;
+            background: var(--bg-card);
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent-primary);
+            box-shadow: var(--shadow-glow);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        /* Section Styling */
+        section {
+            padding: 100px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .section-tag {
+            display: inline-block;
+            padding: 6px 16px;
+            background: var(--gradient-2);
+            border: 1px solid var(--accent-primary);
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .section-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .skill-card {
+            background: var(--bg-card);
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 24px;
+            padding: 40px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: var(--gradient-2);
+            transform: rotate(45deg);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .skill-card:hover::before {
+            opacity: 1;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent-primary);
+            box-shadow: var(--shadow-glow);
+        }
+
+        .skill-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .skill-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .skill-level {
+            display: inline-block;
+            padding: 4px 12px;
+            background: var(--gradient-1);
+            color: var(--bg-primary);
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .skill-description {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Projects Grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 40px;
+        }
+
+        .project-card {
+            background: var(--bg-card);
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 24px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-15px);
+            border-color: var(--accent-primary);
+            box-shadow: var(--shadow-glow);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 250px;
+            background: var(--gradient-2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .project-content {
+            padding: 30px;
+        }
+
+        .project-number {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
+            color: var(--accent-primary);
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .project-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .project-description {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .project-tag {
+            padding: 6px 14px;
+            background: rgba(0,255,136,0.1);
+            border: 1px solid var(--accent-primary);
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .project-link {
+            padding: 10px 20px;
+            background: transparent;
+            border: 1px solid var(--accent-primary);
+            color: var(--accent-primary);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .project-link:hover {
+            background: var(--gradient-2);
+            transform: translateY(-2px);
+        }
+
+        /* Contact Section */
+        .contact-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact-text {
+            font-size: 1.3rem;
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+            line-height: 1.8;
+        }
+
+        .contact-email {
+            display: inline-block;
+            padding: 20px 50px;
+            background: var(--gradient-1);
+            color: var(--bg-primary);
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 30px;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-glow);
+        }
+
+        .contact-email:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 80px rgba(0,255,136,0.5);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 40px;
+        }
+
+        .social-link {
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--bg-card);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 50%;
+            color: var(--text-primary);
+            font-size: 1.5rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: var(--gradient-1);
+            color: var(--bg-primary);
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-glow);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 60px 0;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            color: var(--text-secondary);
+        }
+
+        .footer-text {
+            font-size: 1rem;
+            margin-bottom: 10px;
+        }
+
+        .footer-heart {
+            color: var(--accent-primary);
+            animation: heartbeat 1.5s ease-in-out infinite;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+            50% {
+                opacity: 0.8;
+                transform: scale(1.05);
+            }
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 20px;
+            }
+
+            .hero {
+                padding: 60px 0;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .stats {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+
+            .skills-grid,
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 60px 0;
+            }
+
+            .section-header {
+                margin-bottom: 50px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+
+        /* Scroll indicator */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s ease-in-out infinite;
+        }
+
+        .scroll-indicator::before {
+            content: '↓';
+            font-size: 2rem;
+            color: var(--accent-primary);
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(10px); }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-animation"></div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <span class="hero-badge">🧠 Consciousness Curvature in Progress</span>
+                <h1>Fatih Yenen</h1>
+                <h2>Interdisipliner Yaratıcı Teknolog &amp; Bilinç Araştırmacısı</h2>
+                <p class="hero-description">
+                    SonRa ART – Fikir, Sanat ve Teknoloji Atölyesi'nin kurucusu; 
+                    Consciousness Curvature Framework (CCFy) geliştiricisi. 
+                    Bilinci, yapay zekâyı ve sanatı aynı ekosistemde buluşturan deneysel sistemler, 
+                    sahne akışları ve çok formatlı anlatılar tasarlıyorum.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#projeler" class="btn btn-primary">Çalışmalarıma Göz At</a>
+                    <a href="#iletisim" class="btn btn-secondary">İşbirliği İçin Ulaş</a>
+                </div>
+            </div>
+            <div class="scroll-indicator"></div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <div class="container">
+        <div class="stats">
+            <div class="stat-card">
+                <div class="stat-number">15+</div>
+                <div class="stat-label">Yıllık Deneyim &amp; Arayış</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">4+</div>
+                <div class="stat-label">Temel Eksen: Bilinç, AI, Sanat, Sistem</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">10+</div>
+                <div class="stat-label">Aktif Araştırma / Proje Alanı</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">∞</div>
+                <div class="stat-label">Kavis, Soru ve Deneme</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Skills Section -->
+    <section id="yetenekler">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Odak Alanlarım</span>
+                <h2 class="section-title">Ne Üretiyorum?</h2>
+                <p class="section-subtitle">
+                    Bilinç kuramı, yapay zekâ, sahne tasarımı ve yaratıcı sistemler arasında dolaşan hibrit bir üretim hattı.
+                </p>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <div class="skill-icon">🧠</div>
+                    <h3 class="skill-title">Bilinç &amp; CCFy Araştırmaları</h3>
+                    <span class="skill-level">Teorik / Deneysel</span>
+                    <p class="skill-description">
+                        Consciousness Curvature Framework (CCFy) ile bilinç, karar verme ve deneyim “eğrilik” üzerinden modelleniyor. 
+                        Simülasyon protokolleri, akış tasarımları ve açık bilim odaklı dokümanlar üretiyorum.
+                    </p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">🤖</div>
+                    <h3 class="skill-title">LLM &amp; Çok Ajanlı Sistemler</h3>
+                    <span class="skill-level">Uzman</span>
+                    <p class="skill-description">
+                        FyCore ekosistemi içinde farklı LLM’leri orkestrasyon, karar motorları, 
+                        çok ajanlı iş akışları ve üretim hatlarıyla birleştiriyorum. 
+                        Prompt mimarisi ve sistem tasarımı, çekirdek becerilerimden.
+                    </p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">🎨</div>
+                    <h3 class="skill-title">Görsel Anlatı &amp; AI Art</h3>
+                    <span class="skill-level">İleri</span>
+                    <p class="skill-description">
+                        Realism Caricature, Neo-Paint Smudge ve kişisel stil kodlarıyla; 
+                        tarih, sanat ve kişisel hikâyeleri birleştiren sahneler tasarlıyorum. 
+                        Pinterest Dünya Turu ve SonRa ART serileri bu hattın örnekleri.
+                    </p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">🎙️</div>
+                    <h3 class="skill-title">Podcast &amp; Ses Evrenleri</h3>
+                    <span class="skill-level">Deneyimsel</span>
+                    <p class="skill-description">
+                        Çok sesli diyalog formatları, dramatik anlatı, ElevenLabs tabanlı ses tasarımı ve 
+                        sahne atmosferleriyle dinlenebilir düşünce alanları kuruyorum.
+                    </p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">🧩</div>
+                    <h3 class="skill-title">Sistem Tasarımı &amp; Otomasyon</h3>
+                    <span class="skill-level">İleri</span>
+                    <p class="skill-description">
+                        Yerel ve bulut tabanlı araçları birleştirerek; araştırma, içerik üretimi ve yaratıcı süreçler için 
+                        tekrar eden işleri otomatikleştiren modüler sistemler tasarlıyorum (FyCore, Kütüphane vb.).
+                    </p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">📚</div>
+                    <h3 class="skill-title">Anlatı Tasarımı &amp; Eğitim Formatları</h3>
+                    <span class="skill-level">Sürekli</span>
+                    <p class="skill-description">
+                        Çocuk kanalı (Rafy Planet), sanat–tarih odaklı YouTube formatları (sAIvador pAIcasso) ve 
+                        bilinç/AI ekseninde derinlemesine içerik serileri geliştiriyorum.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projeler">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Ekosistem</span>
+                <h2 class="section-title">Öne Çıkan Yapılar</h2>
+                <p class="section-subtitle">
+                    Fikir, sanat, teknoloji ve bilinci aynı çatı altında toplayan projeler.
+                </p>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image">🎨</div>
+                    <div class="project-content">
+                        <div class="project-number">01</div>
+                        <h3 class="project-title">SonRa ART – Fikir, Sanat ve Teknoloji Atölyesi</h3>
+                        <p class="project-description">
+                            Sanatı sadece izlenen bir nesne olmaktan çıkarıp; statü, düşünce ve bilinç alanı olarak yeniden 
+                            kurgulayan yaratıcı atölye. 
+                            Disiplinler arası kolaborasyonlar, sahne kurguları ve deneysel formatlar burada doğuyor.
+                        </p>
+                        <div class="project-tags">
+                            <span class="project-tag">Sanat</span>
+                            <span class="project-tag">Teknoloji</span>
+                            <span class="project-tag">Atölye</span>
+                            <span class="project-tag">Ekosistem</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link">Detay</a>
+                            <a href="#iletisim" class="project-link">İşbirliği</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">🧠</div>
+                    <div class="project-content">
+                        <div class="project-number">02</div>
+                        <h3 class="project-title">Consciousness Curvature Framework (CCFy)</h3>
+                        <p class="project-description">
+                            Bilinci ve karar süreçlerini “eğrilik” kavramıyla ele alan teorik çerçeve. 
+                            Simülasyon tabanlı deneyler, protokoller ve açık bilim odaklı kayıtlarla 
+                            sürekli evrilen bir araştırma hattı.
+                        </p>
+                        <div class="project-tags">
+                            <span class="project-tag">Araştırma</span>
+                            <span class="project-tag">Simülasyon</span>
+                            <span class="project-tag">Bilinç</span>
+                            <span class="project-tag">Açık Bilim</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link">CCFy Notları</a>
+                            <a href="#iletisim" class="project-link">Akademik İletişim</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">🖼️</div>
+                    <div class="project-content">
+                        <div class="project-number">03</div>
+                        <h3 class="project-title">sAIvador pAIcasso</h3>
+                        <p class="project-description">
+                            Tarih, sanat tarihi ve yapay zekâ destekli görsel hikâye anlatımını birleştiren 
+                            çok formatlı bir içerik hattı. 
+                            YouTube, Instagram ve X üzerinde çift dilli (TR/EN) yayılan sahneler ve anlatılar.
+                        </p>
+                        <div class="project-tags">
+                            <span class="project-tag">AI Art</span>
+                            <span class="project-tag">Storytelling</span>
+                            <span class="project-tag">YouTube</span>
+                            <span class="project-tag">Visual Narrative</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link">Konsept</a>
+                            <a href="#iletisim" class="project-link">İşbirliği</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">🪐</div>
+                    <div class="project-content">
+                        <div class="project-number">04</div>
+                        <h3 class="project-title">Rafy Planet &amp; Çocuk Evreni</h3>
+                        <p class="project-description">
+                            Çocuklar için tasarlanmış, eğitim, oyun, doğa ve keşif odaklı AI destekli içerik evreni. 
+                            Rafy karakteri etrafında kurulan şarkılar, hikâyeler ve görsellerle 
+                            merak duygusunu besleyen bir kanal altyapısı.
+                        </p>
+                        <div class="project-tags">
+                            <span class="project-tag">Çocuk</span>
+                            <span class="project-tag">Eğitim</span>
+                            <span class="project-tag">YouTube</span>
+                            <span class="project-tag">AI Destekli</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link">Kanal Yapısı</a>
+                            <a href="#iletisim" class="project-link">Konsept Geliştirme</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="iletisim">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">İletişim</span>
+                <h2 class="section-title">Bir Sonraki Kıvrımı Beraber Tasarlayalım</h2>
+            </div>
+            <div class="contact-content">
+                <p class="contact-text">
+                    Yeni bir araştırma hattı, deneysel bir içerik formatı, 
+                    atölye, konuşma daveti ya da sadece “bilinç, AI ve sanat” ekseninde sohbet etmek için 
+                    doğrudan yazabilirsiniz.
+                </p>
+                <a href="mailto:researcher@sonra.art" class="contact-email">researcher@sonra.art</a>
+                <div class="social-links">
+                    <a href="#" class="social-link" title="GitHub">💻</a>
+                    <a href="#" class="social-link" title="LinkedIn">💼</a>
+                    <a href="#" class="social-link" title="X / Twitter">🐦</a>
+                    <a href="#" class="social-link" title="Instagram">📷</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p class="footer-text">
+                © 2026 Fatih Yenen. Consciousness Curvature Framework ve SonRa ART ekosistemi içinde üretildi.
+            </p>
+            <p class="footer-text" style="margin-top: 10px; font-size: 0.9rem;">
+                Zamanı tüketmek için değil; kıvrımını değiştirmek için buradayım. ☕
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInUp 0.8s ease-out forwards';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.skill-card, .project-card, .stat-card').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Parallax effect on scroll
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const parallax = document.querySelector('.bg-animation');
+            if (parallax) {
+                parallax.style.transform = `translateY(${scrolled * 0.5}px)`;
+            }
+        });
+
+        // Stats counter animation
+        const animateValue = (element, start, end, duration) => {
+            let startTimestamp = null;
+            const step = (timestamp) => {
+                if (!startTimestamp) startTimestamp = timestamp;
+                const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                const value = Math.floor(progress * (end - start) + start);
+                element.textContent = value + (end === Infinity ? '∞' : '+');
+                if (progress < 1) {
+                    window.requestAnimationFrame(step);
+                }
+            };
+            window.requestAnimationFrame(step);
+        };
+
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const number = entry.target.querySelector('.stat-number');
+                    const value = number.textContent;
+                    if (value === '∞') return;
+                    const numValue = parseInt(value);
+                    number.textContent = '0+';
+                    animateValue(number, 0, numValue, 2000);
+                    statsObserver.unobserve(entry.target);
+                }
+            });
+        });
+
+        document.querySelectorAll('.stat-card').forEach(card => {
+            statsObserver.observe(card);
+        });
+    </script>
+</body>
+</html>
