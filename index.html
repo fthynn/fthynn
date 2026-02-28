@@ -1,0 +1,1082 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fatih Yenen — Interdisipliner Yaratıcı Teknolog</title>
+    <meta name="description" content="SonRa ART kurucusu. CCFy geliştiricisi. Bilinç, AI ve sanatı aynı ekosistemde buluşturan teknolog.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #060608;
+            --surface: #0e0e14;
+            --card: #141420;
+            --border: rgba(255,255,255,0.06);
+            --green: #00ff88;
+            --cyan: #00d4ff;
+            --dim: #5a5a7a;
+            --text: #d8d8e8;
+            --glow-g: 0 0 60px rgba(0,255,136,0.15);
+            --glow-c: 0 0 60px rgba(0,212,255,0.15);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            overflow-x: hidden;
+        }
+
+        /* ─── GRID TEXTURE ─── */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(0,255,136,0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0,255,136,0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* ─── NOISE OVERLAY ─── */
+        body::after {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.4;
+        }
+
+        .z1 { position: relative; z-index: 1; }
+
+        /* ─── NAV ─── */
+        nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 100;
+            padding: 20px 60px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: linear-gradient(to bottom, rgba(6,6,8,0.95), transparent);
+            backdrop-filter: blur(12px);
+        }
+
+        .nav-logo {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
+            color: var(--green);
+            letter-spacing: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--dim);
+            text-decoration: none;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover { color: var(--green); }
+
+        /* ─── HERO ─── */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 0 60px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Orbital rings */
+        .orbital {
+            position: absolute;
+            right: -200px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 700px;
+            height: 700px;
+            pointer-events: none;
+        }
+
+        .orbital-ring {
+            position: absolute;
+            border-radius: 50%;
+            border: 1px solid;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .orbital-ring:nth-child(1) {
+            width: 300px; height: 300px;
+            border-color: rgba(0,255,136,0.15);
+            animation: orbit1 15s linear infinite;
+        }
+
+        .orbital-ring:nth-child(2) {
+            width: 500px; height: 500px;
+            border-color: rgba(0,212,255,0.1);
+            animation: orbit2 25s linear infinite reverse;
+        }
+
+        .orbital-ring:nth-child(3) {
+            width: 680px; height: 680px;
+            border-color: rgba(0,255,136,0.05);
+            animation: orbit3 40s linear infinite;
+        }
+
+        /* Orbital dots */
+        .orbital-ring::before {
+            content: '';
+            position: absolute;
+            width: 6px; height: 6px;
+            border-radius: 50%;
+            background: var(--green);
+            top: -3px; left: 50%;
+            box-shadow: 0 0 12px var(--green);
+        }
+
+        @keyframes orbit1 {
+            from { transform: translate(-50%, -50%) rotate(0deg); }
+            to { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+        @keyframes orbit2 {
+            from { transform: translate(-50%, -50%) rotate(0deg); }
+            to { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+        @keyframes orbit3 {
+            from { transform: translate(-50%, -50%) rotate(0deg); }
+            to { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+
+        .hero-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 16px;
+            border: 1px solid rgba(0,255,136,0.3);
+            border-radius: 50px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--green);
+            margin-bottom: 40px;
+            width: fit-content;
+        }
+
+        .hero-tag .dot {
+            width: 6px; height: 6px;
+            border-radius: 50%;
+            background: var(--green);
+            animation: blink 2s ease-in-out infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.2; }
+        }
+
+        .hero h1 {
+            font-size: clamp(3.5rem, 7vw, 8rem);
+            font-weight: 700;
+            line-height: 1;
+            letter-spacing: -3px;
+            margin-bottom: 8px;
+        }
+
+        .hero h1 .line-green {
+            background: linear-gradient(90deg, var(--green), var(--cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1rem, 2vw, 1.4rem);
+            color: var(--dim);
+            font-weight: 400;
+            margin-bottom: 50px;
+            max-width: 560px;
+            line-height: 1.7;
+        }
+
+        .hero-subtitle em {
+            color: var(--text);
+            font-style: normal;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 14px 32px;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: all 0.3s;
+            letter-spacing: 0.5px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--green), var(--cyan));
+            color: var(--bg);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--glow-g);
+        }
+
+        .btn-ghost {
+            border: 1px solid var(--border);
+            color: var(--text);
+            background: rgba(255,255,255,0.02);
+        }
+
+        .btn-ghost:hover {
+            border-color: rgba(0,255,136,0.3);
+            color: var(--green);
+        }
+
+        /* ─── STATS STRIP ─── */
+        .stats-strip {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            margin: 0;
+        }
+
+        .stat-item {
+            padding: 50px 60px;
+            border-right: 1px solid var(--border);
+            transition: background 0.3s;
+        }
+
+        .stat-item:last-child { border-right: none; }
+
+        .stat-item:hover { background: rgba(0,255,136,0.02); }
+
+        .stat-num {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 3rem;
+            font-weight: 600;
+            background: linear-gradient(135deg, var(--green), var(--cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            color: var(--dim);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* ─── SECTION ─── */
+        section { padding: 120px 60px; }
+
+        .section-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
+            color: var(--green);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .section-label::before {
+            content: '';
+            width: 30px; height: 1px;
+            background: var(--green);
+        }
+
+        .section-title {
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            font-weight: 700;
+            line-height: 1.1;
+            letter-spacing: -2px;
+            margin-bottom: 60px;
+        }
+
+        /* ─── FOCUS GRID ─── */
+        .focus-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1px;
+            background: var(--border);
+            border: 1px solid var(--border);
+        }
+
+        .focus-card {
+            background: var(--card);
+            padding: 48px 40px;
+            transition: background 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .focus-card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(0,255,136,0.04), transparent);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .focus-card:hover::after { opacity: 1; }
+
+        .focus-card:hover { background: #161622; }
+
+        .focus-icon {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .focus-level {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.65rem;
+            color: var(--green);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .focus-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 14px;
+            line-height: 1.3;
+        }
+
+        .focus-desc {
+            font-size: 0.9rem;
+            color: var(--dim);
+            line-height: 1.7;
+        }
+
+        /* ─── ECOSYSTEM ─── */
+        .ecosystem-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: start;
+        }
+
+        .pipeline {
+            background: var(--card);
+            border: 1px solid var(--border);
+            padding: 40px;
+        }
+
+        .pipeline-title {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--dim);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 30px;
+        }
+
+        .pipeline-flow {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .pipe-step {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border);
+            position: relative;
+        }
+
+        .pipe-step:last-child { border-bottom: none; }
+
+        .pipe-num {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
+            color: var(--green);
+            width: 24px;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .pipe-content h4 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .pipe-content p {
+            font-size: 0.8rem;
+            color: var(--dim);
+            line-height: 1.5;
+        }
+
+        .pipe-arrow {
+            position: absolute;
+            left: 11px;
+            bottom: -1px;
+            width: 1px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--green), transparent);
+            opacity: 0.2;
+        }
+
+        .labs-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .lab-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            padding: 28px;
+            transition: all 0.3s;
+            cursor: default;
+        }
+
+        .lab-card:hover {
+            border-color: rgba(0,255,136,0.25);
+            transform: translateY(-4px);
+            box-shadow: var(--glow-g);
+        }
+
+        .lab-card .lab-icon {
+            font-size: 1.5rem;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .lab-card h4 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+
+        .lab-card p {
+            font-size: 0.78rem;
+            color: var(--dim);
+            line-height: 1.5;
+        }
+
+        /* ─── PROJECTS ─── */
+        .projects-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1px;
+            background: var(--border);
+            border: 1px solid var(--border);
+        }
+
+        .project-row {
+            background: var(--card);
+            padding: 40px 48px;
+            display: grid;
+            grid-template-columns: 80px 1fr auto;
+            gap: 32px;
+            align-items: center;
+            transition: background 0.3s;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .project-row:hover { background: #161622; }
+
+        .project-num {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 2rem;
+            font-weight: 600;
+            color: rgba(0,255,136,0.15);
+        }
+
+        .project-info h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .project-info p {
+            font-size: 0.88rem;
+            color: var(--dim);
+            line-height: 1.6;
+            max-width: 600px;
+        }
+
+        .project-tags-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 14px;
+        }
+
+        .tag {
+            padding: 4px 12px;
+            border: 1px solid rgba(0,255,136,0.2);
+            color: rgba(0,255,136,0.7);
+            border-radius: 4px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
+        }
+
+        .project-arrow {
+            font-size: 1.5rem;
+            color: var(--dim);
+            transition: all 0.3s;
+        }
+
+        .project-row:hover .project-arrow {
+            color: var(--green);
+            transform: translate(4px, -4px);
+        }
+
+        /* ─── CONTACT ─── */
+        .contact-block {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1px;
+            background: var(--border);
+            border: 1px solid var(--border);
+        }
+
+        .contact-left {
+            background: var(--card);
+            padding: 80px 60px;
+        }
+
+        .contact-left h2 {
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            font-weight: 700;
+            line-height: 1.1;
+            letter-spacing: -2px;
+            margin-bottom: 30px;
+        }
+
+        .contact-left p {
+            font-size: 1rem;
+            color: var(--dim);
+            line-height: 1.8;
+            margin-bottom: 40px;
+            max-width: 420px;
+        }
+
+        .contact-email-link {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1rem;
+            color: var(--green);
+            text-decoration: none;
+            border-bottom: 1px solid rgba(0,255,136,0.3);
+            padding-bottom: 4px;
+            transition: border-color 0.3s;
+        }
+
+        .contact-email-link:hover { border-color: var(--green); }
+
+        .contact-right {
+            background: #0a0a10;
+            padding: 80px 60px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .contact-links-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .contact-link {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border);
+            text-decoration: none;
+            color: var(--text);
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .contact-link:last-child { border-bottom: none; }
+
+        .contact-link:hover { color: var(--green); padding-left: 8px; }
+
+        .contact-link span:last-child { color: var(--dim); font-size: 1.2rem; }
+
+        /* ─── FOOTER ─── */
+        footer {
+            padding: 40px 60px;
+            border-top: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-left {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--dim);
+        }
+
+        .footer-quote {
+            font-size: 0.85rem;
+            color: var(--dim);
+            font-style: italic;
+        }
+
+        /* ─── STACK PILLS ─── */
+        .stack-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 50px;
+        }
+
+        .stack-pill {
+            padding: 8px 18px;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.78rem;
+            color: var(--dim);
+            transition: all 0.25s;
+        }
+
+        .stack-pill:hover {
+            border-color: rgba(0,255,136,0.3);
+            color: var(--green);
+        }
+
+        /* ─── SCROLL PROGRESS ─── */
+        .scroll-progress {
+            position: fixed;
+            top: 0; left: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--green), var(--cyan));
+            z-index: 200;
+            transition: width 0.1s;
+        }
+
+        /* ─── RESPONSIVE ─── */
+        @media (max-width: 900px) {
+            nav { padding: 20px 30px; }
+            .nav-links { display: none; }
+            .hero { padding: 0 30px; }
+            section { padding: 80px 30px; }
+            .stats-strip { grid-template-columns: repeat(2, 1fr); }
+            .stat-item { padding: 30px; }
+            .focus-grid { grid-template-columns: 1fr; }
+            .ecosystem-layout { grid-template-columns: 1fr; }
+            .labs-grid { grid-template-columns: 1fr; }
+            .project-row { grid-template-columns: 48px 1fr; }
+            .project-arrow { display: none; }
+            .contact-block { grid-template-columns: 1fr; }
+            footer { flex-direction: column; gap: 12px; text-align: center; }
+            .orbital { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="scroll-progress" id="sp"></div>
+
+<!-- NAV -->
+<nav class="z1">
+    <div class="nav-logo">FY / 2026</div>
+    <ul class="nav-links">
+        <li><a href="#odak">Odak</a></li>
+        <li><a href="#ekosistem">Ekosistem</a></li>
+        <li><a href="#projeler">Projeler</a></li>
+        <li><a href="#iletisim">İletişim</a></li>
+    </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero z1">
+    <div class="orbital">
+        <div class="orbital-ring"></div>
+        <div class="orbital-ring"></div>
+        <div class="orbital-ring"></div>
+    </div>
+
+    <div class="hero-tag">
+        <span class="dot"></span>
+        Consciousness Curvature in Progress
+    </div>
+
+    <h1>
+        Fatih<br>
+        <span class="line-green">Yenen</span>
+    </h1>
+
+    <p class="hero-subtitle">
+        <em>Interdisipliner Yaratıcı Teknolog · Bilinç Araştırmacısı</em><br>
+        SonRa ART kurucusu. CCFy geliştiricisi.<br>
+        Bilinci, yapay zekâyı ve sanatı aynı ekosistemde buluşturuyorum.
+    </p>
+
+    <div class="hero-cta">
+        <a href="#projeler" class="btn btn-primary">Çalışmalarıma Göz At →</a>
+        <a href="#iletisim" class="btn btn-ghost">İşbirliği İçin Ulaş</a>
+    </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-strip z1">
+    <div class="stat-item">
+        <div class="stat-num" data-val="15">0</div>
+        <div class="stat-label">Yıllık Deneyim & Arayış</div>
+    </div>
+    <div class="stat-item">
+        <div class="stat-num">4+</div>
+        <div class="stat-label">Temel Eksen: Bilinç · AI · Sanat · Sistem</div>
+    </div>
+    <div class="stat-item">
+        <div class="stat-num" data-val="10">0</div>
+        <div class="stat-label">Aktif Araştırma / Proje Alanı</div>
+    </div>
+    <div class="stat-item">
+        <div class="stat-num">∞</div>
+        <div class="stat-label">Kavis, Soru ve Deneme</div>
+    </div>
+</div>
+
+<!-- FOCUS -->
+<section id="odak" class="z1">
+    <div class="section-label">Odak Alanları</div>
+    <h2 class="section-title">Ne Üretiyorum?</h2>
+
+    <div class="focus-grid">
+        <div class="focus-card">
+            <span class="focus-icon">🧠</span>
+            <div class="focus-level">Teorik / Deneysel</div>
+            <h3 class="focus-title">Bilinç & CCFy Araştırmaları</h3>
+            <p class="focus-desc">
+                Consciousness Curvature Framework (CCFy) ile bilinç, karar verme ve deneyim "eğrilik" üzerinden modelleniyor. Simülasyon protokolleri, akış tasarımları ve açık bilim odaklı dokümanlar üretiyorum.
+            </p>
+        </div>
+        <div class="focus-card">
+            <span class="focus-icon">🤖</span>
+            <div class="focus-level">Uzman</div>
+            <h3 class="focus-title">LLM & Çok Ajanlı Sistemler</h3>
+            <p class="focus-desc">
+                FyCore ekosistemi içinde farklı LLM'leri orkestrasyon, karar motorları, çok ajanlı iş akışları ve üretim hatlarıyla birleştiriyorum. Prompt mimarisi ve sistem tasarımı çekirdek becerilerimden.
+            </p>
+        </div>
+        <div class="focus-card">
+            <span class="focus-icon">🎨</span>
+            <div class="focus-level">İleri</div>
+            <h3 class="focus-title">Görsel Anlatı & AI Art</h3>
+            <p class="focus-desc">
+                Realism Caricature, Neo-Paint Smudge ve kişisel stil kodlarıyla; tarih, sanat ve kişisel hikâyeleri birleştiren sahneler tasarlıyorum. Pinterest Dünya Turu ve SonRa ART serileri bu hattın örnekleri.
+            </p>
+        </div>
+        <div class="focus-card">
+            <span class="focus-icon">🎙️</span>
+            <div class="focus-level">Deneyimsel</div>
+            <h3 class="focus-title">Podcast & Ses Evrenleri</h3>
+            <p class="focus-desc">
+                Çok sesli diyalog formatları, dramatik anlatı, ElevenLabs tabanlı ses tasarımı ve sahne atmosferleriyle dinlenebilir düşünce alanları kuruyorum.
+            </p>
+        </div>
+        <div class="focus-card">
+            <span class="focus-icon">🧩</span>
+            <div class="focus-level">İleri</div>
+            <h3 class="focus-title">Sistem Tasarımı & Otomasyon</h3>
+            <p class="focus-desc">
+                Yerel ve bulut tabanlı araçları birleştirerek; araştırma, içerik üretimi ve yaratıcı süreçler için tekrar eden işleri otomatikleştiren modüler sistemler tasarlıyorum.
+            </p>
+        </div>
+        <div class="focus-card">
+            <span class="focus-icon">📚</span>
+            <div class="focus-level">Sürekli</div>
+            <h3 class="focus-title">Anlatı Tasarımı & Eğitim Formatları</h3>
+            <p class="focus-desc">
+                Çocuk kanalı (Rafy Planet), sanat–tarih odaklı YouTube formatları (sAIvador pAIcasso) ve bilinç/AI ekseninde derinlemesine içerik serileri geliştiriyorum.
+            </p>
+        </div>
+    </div>
+
+    <div class="stack-row">
+        <span class="stack-pill">Python</span>
+        <span class="stack-pill">FastAPI</span>
+        <span class="stack-pill">React</span>
+        <span class="stack-pill">Next.js</span>
+        <span class="stack-pill">Docker</span>
+        <span class="stack-pill">Qdrant</span>
+        <span class="stack-pill">LangGraph</span>
+        <span class="stack-pill">ElevenLabs</span>
+        <span class="stack-pill">ComfyUI</span>
+        <span class="stack-pill">Prolog</span>
+        <span class="stack-pill">PyMC</span>
+        <span class="stack-pill">PostgreSQL</span>
+    </div>
+</section>
+
+<!-- ECOSYSTEM -->
+<section id="ekosistem" class="z1" style="background: var(--surface);">
+    <div class="section-label">FyCore OS</div>
+    <h2 class="section-title">Ekosistem Mimarisi</h2>
+
+    <div class="ecosystem-layout">
+        <div class="pipeline">
+            <div class="pipeline-title">// cognitive pipeline</div>
+            <div class="pipeline-flow">
+                <div class="pipe-step">
+                    <div class="pipe-num">01</div>
+                    <div class="pipe-content">
+                        <h4>Sezgi — CCFy</h4>
+                        <p>Consciousness Curvature Framework. Olasılıksal sinyal girişi, duygusal eğrilik haritası.</p>
+                    </div>
+                </div>
+                <div class="pipe-step">
+                    <div class="pipe-num">02</div>
+                    <div class="pipe-content">
+                        <h4>Analiz — Bayesian Core</h4>
+                        <p>Bayesian inference motoru. Prior güncellemesi ve belirsizlik kalibrasyonu.</p>
+                    </div>
+                </div>
+                <div class="pipe-step">
+                    <div class="pipe-num">03</div>
+                    <div class="pipe-content">
+                        <h4>Karar — Prefrontal Layer</h4>
+                        <p>Çok ajanlı LangGraph orkestrasyon. 6-agent Ordinaryus sistemi.</p>
+                    </div>
+                </div>
+                <div class="pipe-step">
+                    <div class="pipe-num">04</div>
+                    <div class="pipe-content">
+                        <h4>Etik Denetim — SymboLAB</h4>
+                        <p>Sembolik karar katmanı. Prolog tabanlı anayasa + veto sistemi.</p>
+                    </div>
+                </div>
+                <div class="pipe-step">
+                    <div class="pipe-num">05</div>
+                    <div class="pipe-content">
+                        <h4>Çıktı — CosmicLAB</h4>
+                        <p>Presentation layer. Sonra Art · Creative pipeline · Gallery.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="labs-grid">
+            <div class="lab-card">
+                <span class="lab-icon">🏭</span>
+                <h4>AidaLAB</h4>
+                <p>Cognitive engine · Ordinaryus 6-agent · FyCore OS</p>
+            </div>
+            <div class="lab-card">
+                <span class="lab-icon">⚙️</span>
+                <h4>Kernel</h4>
+                <p>RAG system · DFP pipeline · Memory architecture</p>
+            </div>
+            <div class="lab-card">
+                <span class="lab-icon">⚖️</span>
+                <h4>SymboLAB</h4>
+                <p>Symbolic decision · Etik constitution · Veto</p>
+            </div>
+            <div class="lab-card">
+                <span class="lab-icon">🎨</span>
+                <h4>CosmicLAB</h4>
+                <p>Presentation · Sonra Art · Creative pipeline</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projeler" class="z1">
+    <div class="section-label">Portfolio</div>
+    <h2 class="section-title">Öne Çıkan Yapılar</h2>
+
+    <div class="projects-list">
+        <a href="https://www.sonra.art" target="_blank" class="project-row">
+            <div class="project-num">01</div>
+            <div class="project-info">
+                <h3>SonRa ART — Fikir, Sanat ve Teknoloji Atölyesi</h3>
+                <p>Sanatı sadece izlenen bir nesne olmaktan çıkarıp; statü, düşünce ve bilinç alanı olarak yeniden kurgulayan yaratıcı atölye. Disiplinler arası kolaborasyonlar, sahne kurguları ve deneysel formatlar.</p>
+                <div class="project-tags-row">
+                    <span class="tag">Sanat</span>
+                    <span class="tag">Teknoloji</span>
+                    <span class="tag">Atölye</span>
+                    <span class="tag">Ekosistem</span>
+                </div>
+            </div>
+            <div class="project-arrow">↗</div>
+        </a>
+
+        <a href="https://github.com/fthynn/ccfy-framework" target="_blank" class="project-row">
+            <div class="project-num">02</div>
+            <div class="project-info">
+                <h3>Consciousness Curvature Framework (CCFy)</h3>
+                <p>Bilinci ve karar süreçlerini "eğrilik" kavramıyla ele alan teorik çerçeve. Simülasyon tabanlı deneyler, protokoller ve açık bilim odaklı kayıtlarla sürekli evrilen bir araştırma hattı.</p>
+                <div class="project-tags-row">
+                    <span class="tag">Araştırma</span>
+                    <span class="tag">Simülasyon</span>
+                    <span class="tag">Bilinç</span>
+                    <span class="tag">Açık Bilim</span>
+                </div>
+            </div>
+            <div class="project-arrow">↗</div>
+        </a>
+
+        <div class="project-row" style="cursor:default;">
+            <div class="project-num">03</div>
+            <div class="project-info">
+                <h3>sAIvador pAIcasso</h3>
+                <p>Tarih, sanat tarihi ve AI destekli görsel hikâye anlatımını birleştiren çok formatlı içerik hattı. YouTube · Instagram · X · TR/EN çift dilli sahneler ve anlatılar.</p>
+                <div class="project-tags-row">
+                    <span class="tag">AI Art</span>
+                    <span class="tag">Storytelling</span>
+                    <span class="tag">YouTube</span>
+                    <span class="tag">Visual Narrative</span>
+                </div>
+            </div>
+            <div class="project-arrow" style="color:var(--border)">—</div>
+        </div>
+
+        <div class="project-row" style="cursor:default;">
+            <div class="project-num">04</div>
+            <div class="project-info">
+                <h3>Rafy Planet — Çocuk Evreni</h3>
+                <p>Çocuklar için tasarlanmış, eğitim, oyun, doğa ve keşif odaklı AI destekli içerik evreni. Rafy karakteri etrafında kurulan şarkılar, hikâyeler ve görsellerle merak duygusunu besleyen bir kanal altyapısı.</p>
+                <div class="project-tags-row">
+                    <span class="tag">Çocuk</span>
+                    <span class="tag">Eğitim</span>
+                    <span class="tag">AI Destekli</span>
+                    <span class="tag">YouTube</span>
+                </div>
+            </div>
+            <div class="project-arrow" style="color:var(--border)">—</div>
+        </div>
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section id="iletisim" class="z1" style="padding: 0;">
+    <div class="contact-block">
+        <div class="contact-left">
+            <div class="section-label" style="margin-bottom:30px;">İletişim</div>
+            <h2>Bir Sonraki<br>Kıvrımı Beraber<br>Tasarlayalım</h2>
+            <p>
+                Yeni bir araştırma hattı, deneysel bir içerik formatı, atölye, konuşma daveti ya da sadece "bilinç, AI ve sanat" ekseninde sohbet etmek için doğrudan yazabilirsiniz.
+            </p>
+            <a href="mailto:researcher@sonra.art" class="contact-email-link">researcher@sonra.art</a>
+        </div>
+        <div class="contact-right">
+            <div class="contact-links-grid">
+                <a href="https://www.sonra.art" target="_blank" class="contact-link">
+                    <span>sonra.art</span>
+                    <span>↗</span>
+                </a>
+                <a href="https://github.com/fthynn" target="_blank" class="contact-link">
+                    <span>GitHub · fthynn</span>
+                    <span>↗</span>
+                </a>
+                <a href="https://orcid.org/0009-0000-4720-0041" target="_blank" class="contact-link">
+                    <span>ORCID · 0009-0000-4720-0041</span>
+                    <span>↗</span>
+                </a>
+                <a href="https://x.com/fatihynn" target="_blank" class="contact-link">
+                    <span>X · @fatihynn</span>
+                    <span>↗</span>
+                </a>
+                <a href="mailto:fthynn@gmail.com" class="contact-link">
+                    <span>fthynn@gmail.com</span>
+                    <span>↗</span>
+                </a>
+            </div>
+            <p style="font-size:0.8rem; color:var(--dim); margin-top:40px; font-style:italic;">
+                "Zamanı tüketmek için değil;<br>kıvrımını değiştirmek için buradayım." ☕
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="z1">
+    <div class="footer-left">© 2026 Fatih Yenen — Consciousness Curvature Framework & SonRa ART ekosistemi içinde üretildi.</div>
+    <div class="footer-quote">Doğru ritim, doğru titreşim.</div>
+</footer>
+
+<script>
+    // Scroll progress
+    window.addEventListener('scroll', () => {
+        const h = document.documentElement;
+        const pct = (window.scrollY / (h.scrollHeight - h.clientHeight)) * 100;
+        document.getElementById('sp').style.width = pct + '%';
+    });
+
+    // Counter animation
+    const counters = document.querySelectorAll('[data-val]');
+    const obs = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+            if (!e.isIntersecting) return;
+            const el = e.target;
+            const end = parseInt(el.dataset.val);
+            let curr = 0;
+            const step = () => {
+                curr = Math.min(curr + Math.ceil(end / 40), end);
+                el.textContent = curr + '+';
+                if (curr < end) requestAnimationFrame(step);
+            };
+            requestAnimationFrame(step);
+            obs.unobserve(el);
+        });
+    }, { threshold: 0.5 });
+
+    counters.forEach(c => obs.observe(c));
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+        a.addEventListener('click', e => {
+            e.preventDefault();
+            const t = document.querySelector(a.getAttribute('href'));
+            if (t) t.scrollIntoView({ behavior: 'smooth' });
+        });
+    });
+</script>
+</body>
+</html>
