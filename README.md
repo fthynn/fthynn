@@ -14,6 +14,8 @@
 [![X](https://img.shields.io/badge/X-%40fatihynn-000000?style=flat&logo=x&logoColor=white)](https://x.com/fatihynn)
 [![GitHub](https://img.shields.io/badge/GitHub-%40fthynn-181717?style=flat&logo=github&logoColor=white)](https://github.com/fthynn)
 
+[![Portfolio](https://img.shields.io/badge/🌐%20Portfolio%20Site-00ff88?style=for-the-badge&logoColor=black)](https://fthynn.github.io/fthynn/)
+
 </div>
 
 ---
@@ -92,8 +94,6 @@ Tarih, sanat tarihi ve AI destekli görsel hikâye anlatımını birleştiren ç
 ---
 
 <div align="center">
-
-![GitHub Stats](https://github-readme-stats.vercel.app/api?username=fthynn&show_icons=true&hide_border=true&bg_color=0d1117&title_color=00ff88&icon_color=00d4ff&text_color=d8d8e8&ring_color=00ff88)
 
 *"Bir sonraki kıvrımı beraber tasarlayalım."*  
 📬 [researcher@sonra.art](mailto:researcher@sonra.art)
