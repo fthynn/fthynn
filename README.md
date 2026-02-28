@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=600&size=14&duration=3000&pause=1000&color=00FF88&center=true&vCenter=true&width=500&lines=🧠+Consciousness+Curvature+in+Progress...;Bilinç,+AI+ve+Sanatı+aynı+ekosistemde+buluşturuyorum." alt="Typing SVG" />
+<img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=600&size=14&duration=3000&pause=1000&color=00FF88&center=true&vCenter=true&width=500&lines=Consciousness+Curvature+in+Progress...;Bridging+Consciousness%2C+AI+%26+Art." alt="Typing SVG" />
 
 # Fatih Yenen
 
@@ -9,10 +9,10 @@
 *Zamanı tüketmek için değil; kıvrımını değiştirmek için buradayım.* ☕
 
 [![ORCID](https://img.shields.io/badge/ORCID-0009--0000--4720--0041-a6ce39?style=flat&logo=orcid&logoColor=white)](https://orcid.org/0009-0000-4720-0041)
-[![Website](https://img.shields.io/badge/sonra.art-0a0a0f?style=flat&logo=vercel&logoColor=00ff88)](https://www.sonra.art)
-[![Email](https://img.shields.io/badge/researcher@sonra.art-EA4335?style=flat&logo=gmail&logoColor=white)](mailto:researcher@sonra.art)
-[![X](https://img.shields.io/badge/@fatihynn-000000?style=flat&logo=x)](https://x.com/fatihynn)
-[![GitHub](https://img.shields.io/badge/@fthynn-181717?style=flat&logo=github)](https://github.com/fthynn)
+[![Website](https://img.shields.io/badge/sonra.art-0a0a0f?style=flat&logo=vercel&logoColor=white)](https://www.sonra.art)
+[![Email](https://img.shields.io/badge/Email-researcher%40sonra.art-EA4335?style=flat&logo=gmail&logoColor=white)](mailto:researcher@sonra.art)
+[![X](https://img.shields.io/badge/X-%40fatihynn-000000?style=flat&logo=x&logoColor=white)](https://x.com/fatihynn)
+[![GitHub](https://img.shields.io/badge/GitHub-%40fthynn-181717?style=flat&logo=github&logoColor=white)](https://github.com/fthynn)
 
 </div>
 
