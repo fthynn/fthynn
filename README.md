@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=600&size=14&duration=3000&pause=1000&color=00FF88&center=true&vCenter=true&width=500&lines=Consciousness+Curvature+in+Progress...;Bridging+Consciousness%2C+AI+%26+Art." alt="Typing SVG" />
+<img src="https://readme-typing-svg.demolab.com?font=Roboto+Mono&weight=500&size=13&duration=3000&pause=1000&color=C5A059&center=true&vCenter=true&width=500&lines=Kavramsal+Mimari...;Consciousness+Curvature+Framework;Zero+Trust.+Zero+Compromise.+Full+Depth." alt="Typing SVG" />
 
 # Fatih Yenen
 
@@ -8,13 +8,13 @@
 
 *Zamanı tüketmek için değil; kıvrımını değiştirmek için buradayım.* ☕
 
-[![ORCID](https://img.shields.io/badge/ORCID-0009--0000--4720--0041-a6ce39?style=flat&logo=orcid&logoColor=white)](https://orcid.org/0009-0000-4720-0041)
-[![Website](https://img.shields.io/badge/sonra.art-0a0a0f?style=flat&logo=vercel&logoColor=white)](https://www.sonra.art)
-[![Email](https://img.shields.io/badge/Email-researcher%40sonra.art-EA4335?style=flat&logo=gmail&logoColor=white)](mailto:researcher@sonra.art)
-[![X](https://img.shields.io/badge/X-%40fatihynn-000000?style=flat&logo=x&logoColor=white)](https://x.com/fatihynn)
-[![GitHub](https://img.shields.io/badge/GitHub-%40fthynn-181717?style=flat&logo=github&logoColor=white)](https://github.com/fthynn)
+[![ORCID](https://img.shields.io/badge/ORCID-0009--0000--4720--0041-0d1117?style=flat&logo=orcid&logoColor=c5a059)](https://orcid.org/0009-0000-4720-0041)
+[![Website](https://img.shields.io/badge/sonra.art-0d1117?style=flat&logo=safari&logoColor=c5a059)](https://www.sonra.art)
+[![Email](https://img.shields.io/badge/researcher%40sonra.art-0d1117?style=flat&logo=gmail&logoColor=c5a059)](mailto:researcher@sonra.art)
+[![X](https://img.shields.io/badge/%40fatihynn-0d1117?style=flat&logo=x&logoColor=c5a059)](https://x.com/fatihynn)
+[![GitHub](https://img.shields.io/badge/%40fthynn-0d1117?style=flat&logo=github&logoColor=c5a059)](https://github.com/fthynn)
 
-[![Portfolio](https://img.shields.io/badge/🌐%20Portfolio%20Site-00ff88?style=for-the-badge&logoColor=black)](https://fthynn.github.io/fthynn/)
+[![Portfolio](https://img.shields.io/badge/Portfolio%20Site-c5a059?style=for-the-badge&logoColor=090d18)](https://fthynn.github.io/fthynn/)
 
 </div>
 
