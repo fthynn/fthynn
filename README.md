@@ -93,7 +93,7 @@ Tarih, sanat tarihi ve AI destekli görsel hikâye anlatımını birleştiren ç
 
 <div align="center">
 
-![GitHub Stats](https://github-readme-stats.vercel.app/api?username=fthynn&show_icons=true&theme=dark&hide_border=true&bg_color=0a0a0f&title_color=00ff88&icon_color=00ccff&text_color=e8e8f0)
+![GitHub Stats](https://github-readme-stats.vercel.app/api?username=fthynn&show_icons=true&hide_border=true&bg_color=0d1117&title_color=00ff88&icon_color=00d4ff&text_color=d8d8e8&ring_color=00ff88)
 
 *"Bir sonraki kıvrımı beraber tasarlayalım."*  
 📬 [researcher@sonra.art](mailto:researcher@sonra.art)
