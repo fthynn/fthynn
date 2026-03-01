@@ -14,7 +14,7 @@
 [![X](https://img.shields.io/badge/%40fatihynn-000000?style=flat&logo=x&logoColor=white)](https://x.com/fatihynn)
 [![GitHub](https://img.shields.io/badge/%40fthynn-181717?style=flat&logo=github&logoColor=white)](https://github.com/fthynn)
 
-[![Portfolio](https://img.shields.io/badge/Portfolio%20Site-0078D4?style=for-the-badge&logo=windowsterminal&logoColor=white)](https://fthynn.github.io/fthynn/)
+[![Portfolio](https://img.shields.io/badge/PORTFOLIO%20SITE-0d1117?style=for-the-badge&logo=windowsterminal&logoColor=c8d0e0&labelColor=0d1117)](https://fthynn.github.io/fthynn/)
 
 </div>
 
