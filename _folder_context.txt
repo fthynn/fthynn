@@ -1,0 +1,10 @@
+AidaLAB Ekosistemi `fthynn-profile` Dizini
+
+BU KLASÖRÜN AMACI:
+Başkomutan'ın (Fatih Yenen) dijital şahsi profilini, portfolyosunu veya web varlığını barındıran (index.html), ana AidaLAB ekosistemiyle (FyCore, SymboLAB) doğrudan mimari organik bir bağı olmayan statik sunum alanıdır.
+
+İÇERİK ÖZETİ:
+- index.html: Tasarlanmış profil sayfası veya dijital kimlik vitrini.
+
+AYIRICI ÖZELLİK:
+Mimari cerrahi (Sezon 6 vs.) buralara dokunmaz.
