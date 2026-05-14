@@ -11,6 +11,7 @@
 [![GitHub](https://img.shields.io/badge/%40fthynn-181717?style=flat&logo=github&logoColor=white)](https://github.com/fthynn)
 
 [![Portfolio](https://img.shields.io/badge/PORTFOLIO%20SITE-21262d?style=for-the-badge&logo=windowsterminal&logoColor=c8d0e0)](https://fthynn.github.io/fthynn/)
+
 [![Manifesto](https://img.shields.io/badge/☾★_EPİSTEMİK_MANIFESTO-E30A17?style=for-the-badge&logoColor=white)](https://fthynn.github.io/fthynn/Epistemik%20Egemenlik%20Manifestosu.html)
 
 </div>
