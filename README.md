@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="https://readme-typing-svg.demolab.com?font=Roboto+Mono&weight=500&size=13&duration=3000&pause=1000&color=00FF88&center=true&vCenter=true&width=520&lines=Kavramsal+Mimari...;Consciousness+Curvature+Framework;Zero+Trust.+Zero+Compromise.+Full+Depth." alt="Typing SVG" />
+<img src="https://readme-typing-svg.demolab.com?font=Roboto+Mono&weight=500&size=13&duration=3000&pause=1000&color=00FF88&center=true&vCenter=true&width=520&lines=Zero+Trust.+Zero+Compromise.+Full+Depth.;Consciousness+Curvature+Framework;Epistemik+Egemenlik+%E2%80%94+Kavramsal+Mimari" alt="Typing SVG" />
 
 # Fatih Yenen
 
@@ -21,11 +21,23 @@
 <details open>
 <summary><strong>🇹🇷 Türkçe</strong></summary>
 
-**Interdisipliner Yaratıcı Teknolog · Bilinç Araştırmacısı**
+**Kıdemli Sistem Mimarı · Epistemik Mimar · Bilinç Araştırmacısı**
 
 *Zamanı tüketmek için değil; kıvrımını değiştirmek için buradayım.* ☕
 
-**SonRa ART** kurucusu · **CCFy** geliştiricisi. Bilinci, yapay zekâyı ve sanatı aynı ekosistemde buluşturan deneysel sistemler, sahne akışları ve çok formatlı anlatılar tasarlıyorum.
+15+ yıllık mimari deneyimi, bilişsel sistem tasarımına dönüştüren bir mühendis. **SonRa ART** kurucusu · **CCFy** geliştiricisi · **FyCore** mimarı. Bilinci, yapay zekâyı ve sanatı aynı ekosistemde buluşturan deneysel sistemler, çok katmanlı karar mimarileri ve açık bilim çıktıları tasarlıyorum.
+
+---
+
+### 📜 Akademik Yayınlar
+
+| Çıktı | DOI / Bağlantı | Tür |
+|-------|----------------|-----|
+| **FyCore Research Programme** | [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.20181531-blue)](https://doi.org/10.5281/zenodo.20181531) | Preprint · Zenodo |
+| **FyCore OSF Preregistration** | [![OSF](https://img.shields.io/badge/OSF-5qz2u-blue)](https://osf.io/5qz2u) | Epistemic Registration |
+| **CCFy Framework** | [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18130127-blue)](https://doi.org/10.5281/zenodo.18130127) | IP Framework · Zenodo |
+
+> **Lisans:** CC BY-NC 4.0 — Ticari kullanım için yazılı izin gereklidir.
 
 ---
 
@@ -34,6 +46,18 @@
 | 15+ | 4+ | 10+ | ∞ |
 |:---:|:---:|:---:|:---:|
 | Yıllık Deneyim & Arayış | Temel Eksen: Bilinç · AI · Sanat · Sistem | Aktif Araştırma / Proje Alanı | Kavis, Soru ve Deneme |
+
+---
+
+### 🧠 CCFy — Consciousness Curvature Framework
+
+Bilinç, karar ve deneyim süreçlerini **"eğrilik"** kavramıyla modelleyen IP çerçevesi. Geleneksel yapay zekâ metriklerinin ötesinde, epistemik güvenlik ve yapısal çöküş bastırma mekanizmaları sunar.
+
+```
+ΦFy = f(κ, ε, σ)    →    Eğrilik × Epistemik Bariyer × Yapısal Baskılama
+```
+
+→ [ccfy-framework](https://github.com/fthynn/ccfy-framework) · [DOI: 10.5281/zenodo.18130127](https://doi.org/10.5281/zenodo.18130127)
 
 ---
 
@@ -74,11 +98,15 @@ CCFy    Bayesian  Prefrontal  SymboLAB   CosmicLAB
 | 🎨 **CosmicLAB** | Sunum katmanı · Sonra Art · Creative pipeline |
 | ⚙️ **kernel** | RAG sistemi · DFP pipeline · Bellek mimarisi |
 
-### Öne Çıkan Projeler
+---
+
+### 🚀 Öne Çıkan Projeler
 
 **🎨 SonRa ART** — Sanatı statü değil, bilinç alanı olarak yeniden kurgulayan atölye. → [sonra.art](https://www.sonra.art)
 
 **🧠 CCFy** — Bilinç ve karar süreçlerini "eğrilik" kavramıyla ele alan IP çerçevesi. → [ccfy-framework](https://github.com/fthynn/ccfy-framework)
+
+**⚡ FyCore** — Yapısal epistemik çöküş bastırma çerçevesi. Akademik triloji. → [DOI: 10.5281/zenodo.20181531](https://doi.org/10.5281/zenodo.20181531)
 
 **🖼️ sAIvador pAIcasso** — Tarih + sanat tarihi + AI görsel anlatı. YouTube · Instagram · X.
 
@@ -104,11 +132,23 @@ CCFy    Bayesian  Prefrontal  SymboLAB   CosmicLAB
 <details>
 <summary><strong>🇬🇧 English</strong></summary>
 
-**Interdisciplinary Creative Technologist · Consciousness Researcher**
+**Senior Systems Architect · Epistemic Architect · Consciousness Researcher**
 
 *Not here to consume time — here to reshape the curvature.* ☕
 
-Founder of **SonRa ART** · Developer of **CCFy**. I design experimental systems, narrative pipelines, and multi-format productions that merge consciousness research, AI, and art into one ecosystem.
+An engineer who channels 15+ years of architectural experience into cognitive system design. Founder of **SonRa ART** · Developer of **CCFy** · Architect of **FyCore**. I design experimental systems, multi-layered decision architectures, and open science outputs that merge consciousness research, AI, and art into one ecosystem.
+
+---
+
+### 📜 Academic Publications
+
+| Output | DOI / Link | Type |
+|--------|-----------|------|
+| **FyCore Research Programme** | [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.20181531-blue)](https://doi.org/10.5281/zenodo.20181531) | Preprint · Zenodo |
+| **FyCore OSF Preregistration** | [![OSF](https://img.shields.io/badge/OSF-5qz2u-blue)](https://osf.io/5qz2u) | Epistemic Registration |
+| **CCFy Framework** | [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18130127-blue)](https://doi.org/10.5281/zenodo.18130127) | IP Framework · Zenodo |
+
+> **License:** CC BY-NC 4.0 — Written permission required for commercial use.
 
 ---
 
@@ -117,6 +157,18 @@ Founder of **SonRa ART** · Developer of **CCFy**. I design experimental systems
 | 15+ | 4+ | 10+ | ∞ |
 |:---:|:---:|:---:|:---:|
 | Years of Experience & Exploration | Core Axes: Consciousness · AI · Art · Systems | Active Research / Project Areas | Curvatures, Questions & Experiments |
+
+---
+
+### 🧠 CCFy — Consciousness Curvature Framework
+
+An IP framework that models consciousness, decision-making, and experience through **"curvature."** Beyond conventional AI metrics, it offers epistemic security and structural collapse suppression mechanisms.
+
+```
+ΦFy = f(κ, ε, σ)    →    Curvature × Epistemic Barrier × Structural Suppression
+```
+
+→ [ccfy-framework](https://github.com/fthynn/ccfy-framework) · [DOI: 10.5281/zenodo.18130127](https://doi.org/10.5281/zenodo.18130127)
 
 ---
 
@@ -157,11 +209,15 @@ Intuition → Analysis → Decision → Ethical Audit → Output
 | 🎨 **CosmicLAB** | Presentation layer · Sonra Art · Creative pipeline |
 | ⚙️ **kernel** | RAG system · DFP pipeline · Memory architecture |
 
-### Featured Projects
+---
 
-**🎨 SonRa ART** — Creative studio reframing art as consciousness and status, not aesthetics. → [sonra.art](https://www.sonra.art)
+### 🚀 Featured Projects
 
-**🧠 CCFy** — IP framework modeling consciousness and decisions through curvature theory. → [ccfy-framework](https://github.com/fthynn/ccfy-framework)
+**🎨 SonRa ART** — Creative studio reframing art as consciousness, not status. → [sonra.art](https://www.sonra.art)
+
+**🧠 CCFy** — IP framework modeling consciousness and decisions through curvature. → [ccfy-framework](https://github.com/fthynn/ccfy-framework)
+
+**⚡ FyCore** — Structural epistemic collapse suppression framework. Academic trilogy. → [DOI: 10.5281/zenodo.20181531](https://doi.org/10.5281/zenodo.20181531)
 
 **🖼️ sAIvador pAIcasso** — History + art history + AI visual narrative. YouTube · Instagram · X.
 
