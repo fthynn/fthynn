@@ -11,7 +11,6 @@
 [![GitHub](https://img.shields.io/badge/%40fthynn-181717?style=flat&logo=github&logoColor=white)](https://github.com/fthynn)
 
 [![Portfolio](https://img.shields.io/badge/PORTFOLIO%20SITE-21262d?style=for-the-badge&logo=windowsterminal&logoColor=c8d0e0)](https://fthynn.github.io/fthynn/)
-[![Manifesto](https://img.shields.io/badge/☾★_EPİSTEMİK_MANIFESTO-E30A17?style=for-the-badge&logoColor=white)](https://fthynn.github.io/fthynn/Epistemik%20Egemenlik%20Manifestosu.html)
 
 </div>
 
@@ -180,3 +179,51 @@ Intuition → Analysis → Decision → Ethical Audit → Output
 </div>
 
 </details>
+
+---
+
+**Parent:** `D:\AidaLAB`  — `AidaLAB` is the production and staging workspace of the FyCore ecosystem.
+
+**Files:**
+
+- `_folder_context.txt`
+- `index.html`
+- `README.md`
+
+> **Missing Triad:** `mindfulness.md`, `conscientiamea.jsonl`
+
+<!-- machine:coordinate -->
+```json
+{
+  "coordinate_type": "fyca_directory_flag",
+  "version": "2.0",
+  "path": "D:\\AidaLAB\\fthynn-profile",
+  "relative": "fthynn-profile",
+  "depth": 1,
+  "scanned": "2026-03-25T22:22:17+00:00",
+  "parent": "D:\\AidaLAB",
+  "semantic_state": "triad_partial",
+  "triad_flags": {
+    "has_readme": true,
+    "has_mindfulness": false,
+    "has_conscientiamea": false,
+    "has_fyca_artifacts": false
+  },
+  "topology": {
+    "subdirectories": 0,
+    "files": 3,
+    "branch_weight": 3,
+    "extensions": {
+      ".fyca": 1,
+      ".html": 1,
+      ".md": 1,
+      ".txt": 1
+    }
+  },
+  "claims": {
+    "portable_shell_only": true,
+    "source_of_truth": false,
+    "canonical_boundary": "triad owns truth, this file owns topology"
+  }
+}
+```

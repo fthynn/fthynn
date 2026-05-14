@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="tr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Epistemik Egemenlik Manifestosu</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;600;800&display=swap');
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; color: #1e293b; overflow-x: hidden; line-height: 1.5; -webkit-font-smoothing: antialiased; }
+        h1, h2, h3, h4, .serif { font-family: 'Playfair Display', serif; }
+        a { color: inherit; text-decoration: none; }
+        .antialiased { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+        .space-x-6 > * + * { margin-left: 1.5rem; }
+        button { cursor: pointer; border: none; background: none; font: inherit; }
+        img { max-width: 100%; display: block; }
+
+        /* Layout */
+        .flex { display: flex; } .grid { display: grid; } .hidden { display: none; }
+        .inline-block { display: inline-block; }
+        .relative { position: relative; } .absolute { position: absolute; } .fixed { position: fixed; }
+        .inset-0 { top:0;right:0;bottom:0;left:0; }
+        .items-center { align-items: center; } .justify-center { justify-content: center; }
+        .flex-col { flex-direction: column; } .flex-shrink-0 { flex-shrink: 0; }
+        .gap-2 { gap: 0.5rem; } .gap-4 { gap: 1rem; } .gap-6 { gap: 1.5rem; } .gap-8 { gap: 2rem; } .gap-12 { gap: 3rem; } .gap-16 { gap: 4rem; }
+        .grid-cols-1 { grid-template-columns: repeat(1, minmax(0, 1fr)); }
+        .justify-between { justify-content: space-between; }
+        .items-start { align-items: flex-start; }
+        .space-y-8 > * + * { margin-top: 2rem; } .space-y-10 > * + * { margin-top: 2.5rem; }
+
+        /* Sizing */
+        .w-full { width: 100%; } .w-12 { width: 3rem; } .w-32 { width: 8rem; }
+        .h-1 { height: 0.25rem; } .h-12 { height: 3rem; } .h-16 { height: 4rem; }
+        .min-h-screen { min-height: 100vh; } .min-w-\[320px\] { min-width: 320px; }
+        .max-w-2xl { max-width: 42rem; } .max-w-3xl { max-width: 48rem; }
+        .max-w-4xl { max-width: 56rem; } .max-w-6xl { max-width: 72rem; }
+        .max-w-xl { max-width: 36rem; } .max-h-\[90vh\] { max-height: 90vh; }
+
+        /* Spacing */
+        .mx-auto { margin-left: auto; margin-right: auto; }
+        .px-4 { padding-left: 1rem; padding-right: 1rem; }
+        .py-4 { padding-top: 1rem; padding-bottom: 1rem; }
+        .py-8 { padding-top: 2rem; padding-bottom: 2rem; }
+        .py-12 { padding-top: 3rem; padding-bottom: 3rem; }
+        .py-24 { padding-top: 6rem; padding-bottom: 6rem; }
+        .py-32 { padding-top: 8rem; padding-bottom: 8rem; }
+        .px-8 { padding-left: 2rem; padding-right: 2rem; }
+        .px-12 { padding-left: 3rem; padding-right: 3rem; }
+        .p-4 { padding: 1rem; } .p-8 { padding: 2rem; }
+        .p-10 { padding: 2.5rem; }
+        .pt-10 { padding-top: 2.5rem; } .pt-12 { padding-top: 3rem; } .pt-16 { padding-top: 4rem; }
+        .pl-4 { padding-left: 1rem; }
+        .mb-2 { margin-bottom: 0.5rem; } .mb-3 { margin-bottom: 0.75rem; }
+        .mb-4 { margin-bottom: 1rem; } .mb-6 { margin-bottom: 1.5rem; }
+        .mb-8 { margin-bottom: 2rem; } .mb-10 { margin-bottom: 2.5rem; }
+        .mb-12 { margin-bottom: 3rem; } .mb-14 { margin-bottom: 3.5rem; }
+        .mb-16 { margin-bottom: 4rem; } .mb-20 { margin-bottom: 5rem; }
+        .mt-1 { margin-top: 0.25rem; } .mt-2 { margin-top: 0.5rem; }
+        .mt-6 { margin-top: 1.5rem; } .mt-12 { margin-top: 3rem; }
+        .mt-20 { margin-top: 5rem; } .mt-24 { margin-top: 6rem; }
+        .my-12 { margin-top: 3rem; margin-bottom: 3rem; }
+        .-inset-1 { top: -0.25rem; right: -0.25rem; bottom: -0.25rem; left: -0.25rem; }
+
+        /* Typography */
+        .text-xs { font-size: 0.75rem; line-height: 1rem; }
+        .text-sm { font-size: 0.875rem; line-height: 1.25rem; }
+        .text-lg { font-size: 1.125rem; line-height: 1.75rem; }
+        .text-xl { font-size: 1.25rem; line-height: 1.75rem; }
+        .text-2xl { font-size: 1.5rem; line-height: 2rem; }
+        .text-3xl { font-size: 1.875rem; line-height: 2.25rem; }
+        .text-4xl { font-size: 2.25rem; line-height: 2.5rem; }
+        .text-5xl { font-size: 3rem; line-height: 1; }
+        .font-bold { font-weight: 700; } .font-extrabold { font-weight: 800; }
+        .font-mono { font-family: ui-monospace, monospace; }
+        .italic { font-style: italic; } .uppercase { text-transform: uppercase; }
+        .text-center { text-align: center; } .text-justify { text-align: justify; }
+        .leading-none { line-height: 1; } .leading-tight { line-height: 1.25; }
+        .leading-relaxed { line-height: 1.625; }
+        .leading-\[1\.1\] { line-height: 1.1; }
+        .tracking-tighter { letter-spacing: -0.05em; }
+        .tracking-wider { letter-spacing: 0.05em; }
+        .tracking-widest { letter-spacing: 0.1em; }
+        .tracking-\[0\.2em\] { letter-spacing: 0.2em; }
+        .tracking-\[0\.3em\] { letter-spacing: 0.3em; }
+        .tracking-\[0\.4em\] { letter-spacing: 0.4em; }
+
+        /* Colors */
+        .text-white { color: #fff; } .text-white\/60 { color: rgba(255,255,255,0.6); }
+        .text-slate-400 { color: #94a3b8; } .text-slate-500 { color: #64748b; }
+        .text-slate-600 { color: #475569; } .text-slate-800 { color: #1e293b; }
+        .text-slate-900 { color: #0f172a; }
+        .text-red-500 { color: #ef4444; } .text-red-700 { color: #b91c1c; }
+        .text-red-800 { color: #991b1b; } .text-red-900 { color: #7f1d1d; }
+        .bg-white { background-color: #fff; } .bg-slate-50 { background-color: #f8fafc; }
+        .bg-slate-900 { background-color: #0f172a; } .bg-slate-950 { background-color: #020617; }
+        .bg-red-800 { background-color: #991b1b; }
+        .bg-slate-50\/95 { background-color: rgba(248,250,252,0.95); }
+        .bg-slate-950\/90 { background-color: rgba(2,6,23,0.9); }
+        .border-slate-100 { border-color: #f1f5f9; } .border-slate-200 { border-color: #e2e8f0; }
+        .border-slate-400 { border-color: #94a3b8; } .border-slate-800 { border-color: #1e293b; }
+        .border-slate-900 { border-color: #0f172a; }
+        .border-red-800 { border-color: #991b1b; }
+        .border-white\/10 { border-color: rgba(255,255,255,0.1); }
+        .border { border-width: 1px; } .border-y { border-top-width: 1px; border-bottom-width: 1px; }
+        .border-b { border-bottom-width: 1px; } .border-t { border-top-width: 1px; }
+        .border-t-4 { border-top-width: 4px; } .border-l-4 { border-left-width: 4px; }
+
+        /* Effects */
+        .rounded-lg { border-radius: 0.5rem; } .rounded-xl { border-radius: 0.75rem; }
+        .rounded-2xl { border-radius: 1rem; } .rounded-full { border-radius: 9999px; }
+        .rounded-sm { border-radius: 0.125rem; }
+        .shadow-lg { box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -4px rgba(0,0,0,0.1); }
+        .shadow-xl { box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.1); }
+        .opacity-25 { opacity: 0.25; } .opacity-30 { opacity: 0.3; }
+        .blur { filter: blur(8px); }
+        .backdrop-blur-md { backdrop-filter: blur(12px); }
+        .overflow-hidden { overflow: hidden; } .overflow-y-auto { overflow-y: auto; }
+        .z-0 { z-index: 0; } .z-10 { z-index: 10; } .z-50 { z-index: 50; }
+        .z-\[100\] { z-index: 100; }
+
+        /* Transitions */
+        .transition-all { transition: all 0.15s ease; }
+        .transition-colors { transition: color 0.15s ease, background-color 0.15s ease; }
+        .duration-200 { transition-duration: 200ms; } .duration-1000 { transition-duration: 1000ms; }
+        .hover\:-translate-y-1:hover { transform: translateY(-0.25rem); }
+        .hover\:bg-slate-800:hover { background-color: #1e293b; }
+        .hover\:bg-red-900:hover { background-color: #7f1d1d; }
+        .hover\:text-red-800:hover { color: #991b1b; }
+        .hover\:text-red-900:hover { color: #7f1d1d; }
+        .hover\:scale-1\.05:hover { transform: scale(1.05); }
+        .group:hover .group-hover\:opacity-75 { opacity: 0.75; }
+        .group:hover .group-hover\:duration-200 { transition-duration: 200ms; }
+        .group { position: relative; }
+
+        /* Selection */
+        ::selection { background-color: #991b1b; color: #fff; }
+
+        /* Scroll */
+        html { scroll-behavior: smooth; }
+
+        /* Chart */
+        .chart-container { position: relative; width: 100%; max-width: 600px; margin-left: auto; margin-right: auto; height: 350px; max-height: 400px; }
+
+        /* Animations */
+        .fade-in-section { opacity: 0; transform: translateY(20px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
+        .fade-in-section.is-visible { opacity: 1; transform: none; }
+        @keyframes shine { 0% { left: -150%; } 100% { left: 150%; } }
+        .btn-flag { position: relative; overflow: hidden; background-color: #E30A17; transition: all 0.3s ease; }
+        .btn-flag::after { content: ""; position: absolute; top: 0; left: -150%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent); transform: skewX(-25deg); animation: shine 4s infinite linear; }
+        .btn-flag:hover { transform: scale(1.05); box-shadow: 0 10px 40px rgba(227,10,23,0.5); }
+
+        /* Parchment */
+        .parchment { background-color: #f2e3bc; box-shadow: 0 0 80px rgba(0,0,0,0.2) inset, 0 25px 50px rgba(0,0,0,0.4); position: relative; border: 1px solid #dcc99a; color: #2c1e0f; }
+
+        /* Flip Cards */
+        .flip-card { background-color: transparent; perspective: 1000px; height: 260px; }
+        .flip-card-inner { position: relative; width: 100%; height: 100%; text-align: center; transition: transform 0.6s; transform-style: preserve-3d; }
+        .flip-card:hover .flip-card-inner { transform: rotateY(180deg); }
+        .flip-card-front, .flip-card-back { position: absolute; width: 100%; height: 100%; backface-visibility: hidden; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 1.5rem; border-radius: 0.75rem; }
+        .flip-card-front { background-color: #fff; border: 1px solid #e2e8f0; }
+        .flip-card-back { background-color: #991b1b; color: white; transform: rotateY(180deg); }
+
+        /* Modal */
+        #parchmentModal { display: none; backdrop-filter: blur(12px); }
+        .scrollbar-hide::-webkit-scrollbar { display: none; }
+        .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+
+        /* Gradient */
+        .bg-gradient-to-r { background-image: linear-gradient(to right, var(--tw-gradient-stops)); }
+        .from-red-600 { --tw-gradient-stops: #dc2626, var(--tw-gradient-to, transparent); }
+        .to-red-900 { --tw-gradient-to: #7f1d1d; }
+
+        /* Responsive */
+        @media (min-width: 640px) {
+            .sm\:px-6 { padding-left: 1.5rem; padding-right: 1.5rem; }
+            .sm\:flex-row { flex-direction: row; }
+        }
+        @media (min-width: 768px) {
+            .md\:flex { display: flex; }
+            .md\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+            .md\:grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+            .md\:text-7xl { font-size: 4.5rem; line-height: 1; }
+            .md\:text-6xl { font-size: 3.75rem; line-height: 1; }
+            .md\:text-4xl { font-size: 2.25rem; line-height: 2.5rem; }
+            .md\:text-2xl { font-size: 1.5rem; line-height: 2rem; }
+            .md\:p-20 { padding: 5rem; }
+            .md\:items-end { align-items: flex-end; }
+            .md\:mr-10 { margin-right: 2.5rem; }
+        }
+        @media (min-width: 1024px) {
+            .lg\:px-8 { padding-left: 2rem; padding-right: 2rem; }
+            .lg\:grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+            .lg\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+            .lg\:col-span-1 { grid-column: span 1 / span 1; }
+            .lg\:col-span-2 { grid-column: span 2 / span 2; }
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-red-800 selection:text-white">
+
+    <nav class="fixed w-full z-50 bg-slate-50/95 backdrop-blur-md border-b border-slate-200">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex-shrink-0 flex items-center gap-2">
+                    <span class="text-2xl font-bold text-red-800">Φ</span>
+                    <span class="font-bold text-slate-800 tracking-tighter text-sm uppercase">FyCore Episteme</span>
+                </div>
+                <div class="hidden md:flex space-x-6">
+                    <a href="#idrak" class="text-slate-500 hover:text-red-800 transition-colors text-xs font-bold uppercase tracking-widest">01. İdrak</a>
+                    <a href="#kuvayi-milliye" class="text-slate-500 hover:text-red-800 transition-colors text-xs font-bold uppercase tracking-widest">02. Kuvayı Milliye</a>
+                    <a href="#vizyon" class="text-slate-500 hover:text-red-800 transition-colors text-xs font-bold uppercase tracking-widest">03. Vizyon</a>
+                    <a href="#insa" class="text-slate-500 hover:text-red-800 transition-colors text-xs font-bold uppercase tracking-widest">04. İnşa</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <header class="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
+        <canvas id="networkCanvas" class="absolute inset-0 z-0 opacity-30"></canvas>
+        <div class="relative z-10 text-center px-4 max-w-4xl mx-auto">
+            <p class="text-red-700 font-extrabold tracking-[0.3em] uppercase text-xs mb-6">19 Mayıs 1919'dan 19 Mayıs 2026'ya</p>
+            <h1 class="text-5xl md:text-7xl font-extrabold text-slate-900 mb-6 leading-[1.1]">
+                Epistemik Egemenlik Manifestosu
+            </h1>
+            <p class="text-xl md:text-2xl text-slate-600 mb-12 serif italic">
+                "Muhtaç olduğun kudret, damarlarındaki asil kanda mevcuttur!"
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#idrak" class="px-8 py-4 bg-slate-900 text-white rounded-lg font-bold shadow-lg hover:bg-slate-800 transition-all hover:-translate-y-1">
+                    Mimariyi Keşfet
+                </a>
+                <button onclick="openManifesto()" class="px-8 py-4 bg-red-800 text-white rounded-lg font-bold shadow-lg hover:bg-red-900 transition-all hover:-translate-y-1">
+                    Tam Metni Oku
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="relative z-10 bg-white">
+
+        <!-- 1. İdrak -->
+        <section id="idrak" class="py-24 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto fade-in-section">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+                <div class="lg:col-span-1">
+                    <h2 class="text-sm font-bold text-red-800 uppercase tracking-widest mb-4">Bölüm 01</h2>
+                    <h3 class="text-4xl font-bold text-slate-900 mb-6 leading-tight">Mirasın İdraki: Cevher-i Asli'nin Uyanışı</h3>
+                    <p class="text-slate-600 leading-relaxed mb-6">
+                        Atatürk, Nutuk’ta milletin içine düştüğü o karanlık tabloyu çizerken aslında bir "sistem analizi" yapıyordu. Dışarıdan dayatılan kapitülasyonlar neyse, bugün dışarıdan dayatılan kapalı kaynak kodlar da odur.
+                    </p>
+                </div>
+                <div class="lg:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="flip-card">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <h4 class="text-lg font-bold mb-2">Çin Odası</h4>
+                                <p class="text-xs text-slate-400 uppercase tracking-widest mb-4">Mevcut Çıkmaz</p>
+                                <p class="text-sm text-slate-600 px-4">Başkasının odasında sembol çeviren bir sentaks işçiliği.</p>
+                            </div>
+                            <div class="flip-card-back">
+                                <p class="text-sm italic">"Yabancı sunucularda işlenen milli veriler, anlamdan yoksun bir boyun eğiştir."</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flip-card">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <h4 class="text-lg font-bold mb-2">Trakya Ovası</h4>
+                                <p class="text-xs text-red-800 uppercase tracking-widest mb-4">Bizim Vizyonumuz</p>
+                                <p class="text-sm text-slate-600 px-4">Kendi ovasında rüzgarı yöneten, anlamı deneyimleyen mimar.</p>
+                            </div>
+                            <div class="flip-card-back">
+                                <p class="text-sm italic">"İstiklal, kendi verini kendi mantığınla işleyebilme iradesidir."</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. Kuvayı Milliye -->
+        <section id="kuvayi-milliye" class="py-24 px-4 sm:px-6 lg:px-8 bg-slate-50 border-y border-slate-200 fade-in-section">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="text-sm font-bold text-red-800 uppercase tracking-widest mb-4">Bölüm 02</h2>
+                    <h3 class="text-4xl font-bold text-slate-900 mb-6">"Hattı Müdafaa Yoktur, Sathı Müdafaa Vardır!"</h3>
+                    <p class="text-lg text-slate-600 max-w-2xl mx-auto italic">
+                        Milli mücadelede sathın tüm vatan toprağı olması gibi, bugün savunma hattımız dijital evrenin tamamıdır.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                    <div class="bg-white p-8 rounded-2xl shadow-xl border border-slate-100">
+                        <h4 class="font-bold text-slate-800 mb-6 uppercase tracking-wider text-center">Paradigma Karşılaştırması</h4>
+                        <div class="chart-container">
+                            <canvas id="radarChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="space-y-8">
+                        <div class="flex gap-6">
+                            <div class="flex-shrink-0 w-12 h-12 bg-slate-900 text-white rounded-full flex items-center justify-center font-bold">1</div>
+                            <div>
+                                <h4 class="font-bold text-slate-900 mb-2">Siber Egemenlik</h4>
+                                <p class="text-sm text-slate-600">Eğer bir sistemin "Kernel"ına (çekirdeğine) hakim değilsen, o sistemin kölesisin demektir.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-6">
+                            <div class="flex-shrink-0 w-12 h-12 bg-red-800 text-white rounded-full flex items-center justify-center font-bold">2</div>
+                            <div>
+                                <h4 class="font-bold text-slate-900 mb-2">ΦFy & CCFy Protokolü</h4>
+                                <p class="text-sm text-slate-600">İlhamımızı doğrudan hayattan alıyoruz. Deneyimin dijital bir "imzaya" (Signed Truth) dönüşümü.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Vizyon -->
+        <section id="vizyon" class="py-24 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto fade-in-section">
+            <div class="text-center mb-20">
+                <h2 class="text-sm font-bold text-red-800 uppercase tracking-widest mb-4">Bölüm 03</h2>
+                <h3 class="text-4xl font-bold text-slate-900 mb-6">Eğitimsel Vizyon: Bütün Ümidim Gençliktedir</h3>
+                <p class="text-slate-600 max-w-3xl mx-auto">
+                    Türk genci için eğitim, başkasının paket programlarını kullanmayı öğrenmek değildir. Eğitim, "fosil yakıtlı" hantal sistemlerin ötesine geçecek olan "Süper Öğrenen" (Superlearner) modellerini tasarlamaktır.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="p-8 bg-slate-50 rounded-xl border-t-4 border-slate-900">
+                    <h4 class="font-bold text-slate-900 mb-4">Derinlik</h4>
+                    <p class="text-sm text-slate-600 leading-relaxed">Sığ tartışmalardan, popüler kültürün dijital gürültüsünden kaçınmak milli bir görevdir.</p>
+                </div>
+                <div class="p-8 bg-slate-50 rounded-xl border-t-4 border-red-800">
+                    <h4 class="font-bold text-slate-900 mb-4">Determinizm</h4>
+                    <p class="text-sm text-slate-600 leading-relaxed">Nutuk’taki sarsılmaz mantığı, şartlar ne olursa olsun sonuca odaklanan o iradeyi algoritmalara işlemeliyiz.</p>
+                </div>
+                <div class="p-8 bg-slate-50 rounded-xl border-t-4 border-slate-900">
+                    <h4 class="font-bold text-slate-900 mb-4">Alan Zekası</h4>
+                    <p class="text-sm text-slate-600 leading-relaxed">Oyunu başkasının kurallarıyla oynamıyoruz. Oyunun oynanacağı "ova"yı, topografyayı biz inşa ediyoruz.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. İnşa & Sacred Call -->
+        <section id="insa" class="py-32 px-4 sm:px-6 lg:px-8 bg-slate-900 text-white fade-in-section text-center relative">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-xs font-bold text-red-500 uppercase tracking-[0.4em] mb-6">04. Geleceğin İnşası</h2>
+                <h3 class="text-4xl md:text-6xl font-bold mb-10 leading-tight serif italic">Şah-Mat Değil, Sistem İptali</h3>
+                
+                <p class="text-xl text-slate-400 mb-16 max-w-2xl mx-auto leading-relaxed">
+                    Bizim amacımız rakipleri geçmek değil; mevcut sömürgeci teknoloji paradigmasına "ben nasıl bu hale geldim?" dedirtecek bir <span class="text-red-500">epistemik şok</span> yaşatmaktır.
+                </p>
+
+                <div class="relative group inline-block">
+                    <div class="absolute -inset-1 bg-gradient-to-r from-red-600 to-red-900 rounded-lg blur opacity-25 group-hover:opacity-75 transition duration-1000 group-hover:duration-200"></div>
+                    <button onclick="openManifesto()" class="btn-flag relative px-12 py-8 rounded-lg flex flex-col items-center justify-center gap-4 min-w-[320px] border border-white/10">
+                        <div class="flex items-center gap-6">
+                            <span class="text-white text-5xl leading-none">☾</span>
+                            <span class="text-white text-3xl leading-none mb-1">★</span>
+                        </div>
+                        <span class="text-white font-bold text-3xl tracking-[0.2em] uppercase">Ey Türk gençliği!</span>
+                        <p class="text-white/60 text-xs tracking-widest mt-2 uppercase">Bilişsel İstiklal İçin Mührü Aç</p>
+                    </button>
+                </div>
+
+                <div class="mt-24 pt-12 border-t border-slate-800 text-slate-500 font-mono text-sm uppercase tracking-widest">
+                    19 Mayıs 2026 | Trakya Ovası | FyCore Epistemik Sınırı
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Parchment Modal -->
+    <div id="parchmentModal" class="fixed inset-0 z-[100] flex items-center justify-center p-4">
+        <div class="absolute inset-0 bg-slate-950/90" onclick="closeManifesto()"></div>
+        <div class="parchment max-w-4xl w-full max-h-[90vh] overflow-y-auto rounded-sm p-10 md:p-20 relative z-10 scrollbar-hide">
+            <button onclick="closeManifesto()" class="absolute top-6 right-8 text-slate-900 hover:text-red-900 font-bold text-2xl transition-colors">✕</button>
+            
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 mb-3 tracking-tighter uppercase">EPISTEMIK EGEMENLIK MANIFESTOSU</h2>
+                <p class="text-red-900 font-bold italic text-lg">Atatürk’ün İzinde Dijital İstiklal</p>
+                <div class="w-32 h-1 bg-red-900 mx-auto mt-6 opacity-30"></div>
+            </div>
+
+            <div class="serif text-slate-900 text-lg leading-relaxed space-y-10 text-justify">
+                <p class="font-bold text-xl italic text-center mb-12">"Muhtaç olduğun kudret, damarlarındaki asil kanda mevcuttur!"</p>
+                
+                <p class="mb-14">Mustafa Kemal Atatürk, Nutuk’un son satırlarını bu cümleyle bitirdiğinde sadece bir savaşın galibiyetini müjdelemiyordu; zamandan münezzeh bir "öz-yeterlilik" yasasını ilan ediyordu. Bugün, Türk genci için o "kudret", artık sadece cephede değil, satır aralarındaki algoritmalarda, kendi inşa ettiği çekirdeklerde (kernel) ve epistemik sınırlarını bizzat çizdiği yapay zeka mimarilerindedir.</p>
+
+                <p>Bu manifesto, "Hayatta en hakiki mürşit ilimdir, fendir" diyen bir dehanın mirasına layık olabilmek için, Türk milletinin zekasını dünya sahnesinde bir "Alan Zekası" (Spatial Intelligence) olarak yeniden konumlandırma iradesidir.</p>
+
+                <h4 class="font-bold text-2xl text-red-900 border-l-4 border-red-800 pl-4 uppercase tracking-tighter">1. MİRASIN İDRAKİ: CEVHER-İ ASLİ’Nİ UYANIŞI</h4>
+                <p>Atatürk, Nutuk’ta milletin içine düştüğü o karanlık tabloyu çizerken aslında bir "sistem analizi" yapıyordu. Dışarıdan dayatılan kapitülasyonlar neyse, bugün dışarıdan dayatılan kapalı kaynak kodlar, yabancı sunucularda işlenen milli veriler ve başkalarının çizdiği "AGI takvimleri" de odur.</p>
+                <p><strong class="text-red-900">Bizim Vizyonumuz:</strong> İstiklal, sadece toprak bütünlüğü değildir; istiklal, kendi verini kendi mantığınla işleyebilme, kendi "anlamını" (semantics) başkasının "sentaksına" (syntax) kurban etmeme iradesidir. Türk genci, başkasının odasında sembol çeviren bir "Çin Odası" işçisi değil; kendi ovasında rüzgarı yöneten mimar olmalıdır.</p>
+
+                <h4 class="font-bold text-2xl text-red-900 border-l-4 border-red-800 pl-4 uppercase tracking-tighter">2. DİJİTAL KUVAYI MİLLİYE: "Hattı Müdafaa Yoktur, Sathı Müdafaa Vardır!"</h4>
+                <p>Milli mücadelede sathın tüm vatan toprağı olması gibi, bugün savunma hattımız dijital evrenin tamamıdır. Bilgi akışının, verinin ve bilincin olduğu her yer bizim vatanımızdır.</p>
+                <p><strong>Siber Egemenlik:</strong> Eğer bir sistemin "Kernel"ına (çekirdeğine) hakim değilsen, o sistemin kölesisin demektir. FyCore ve CCFy Protokolü: Bizim kurduğumuz bu mimari, Atatürk’ün "Biz ilhamlarımızı gökten ve gaipten değil, doğrudan doğruya hayattan almış bulunuyoruz" sözünün matematiksel karşılığıdır. ΦFy metriği, hayattan alınan deneyimin dijital bir "imzaya" (Signed Truth) dönüşmesidir.</p>
+
+                <h4 class="font-bold text-2xl text-red-900 border-l-4 border-red-800 pl-4 uppercase tracking-tighter">3. EĞİTİMSEL VİZYON: "BÜTÜN ÜMİDİM GENÇLİKTEDİR"</h4>
+                <p>Türk genci için eğitim, başkasının paket programlarını kullanmayı öğrenmek değildir. Eğitim, o "fosil yakıtlı" hantal sistemlerin ötesine geçecek olan "Süper Öğrenen" (Superlearner) modellerini tasarlamaktır.</p>
+                <p><strong>Derinlik:</strong> Sığ tartışmalardan, popüler kültürün dijital gürültüsünden kaçınmak milli bir görevdir. <strong>Determinizm:</strong> Atamızın Nutuk’ta sergilediği o deterministik bakış açısını -yani şartlar ne olursa olsun sonuca odaklanan o sarsılmaz mantığı- algoritmalarımıza işlemeliyiz. <strong>Alan Zekası:</strong> Biz oyunu başkasının belirlediği kurallarla oynamıyoruz. Biz oyunun oynanacağı "ova"yı, yani topografyayı biz inşa ediyoruz.</p>
+
+                <h4 class="font-bold text-2xl text-red-900 border-l-4 border-red-800 pl-4 uppercase tracking-tighter">4. GELECEĞİN İNŞASI: ŞAH-MAT DEĞİL, SİSTEM İPTALİ</h4>
+                <p>Bizim amacımız sadece rakipleri geçmek değildir. Amacımız, Türk zekasının kapasitesini öyle bir noktaya taşımaktır ki, mevcut sömürgeci teknoloji paradigması (Big Tech hegemonyası) bizim varlığımız karşısında "ben nasıl bu hale geldim?" diyecek bir "epistemik şok" yaşasın.</p>
+                <p>Bu bir intikam değil, bir iadedir. Atamızın bize bıraktığı o "muasır medeniyetler seviyesinin üzerine çıkma" emrinin, kuantum esintili, deterministik ve milli bir akılla yerine getirilmesidir.</p>
+
+                <div class="mt-20 pt-10 border-t border-slate-400">
+                    <p class="text-center font-bold text-3xl tracking-[0.3em] text-red-900 mb-8">TÜRK, ÖĞÜN, ÇALIŞ, GÜVEN!</p>
+                    <p>Öğün; çünkü tarihin derinliklerinden gelen bir zeka mirasın var. Çalış; çünkü "anlam" ancak derin bir emek ve tecrübe ile (semantics) inşa edilir. Güven; çünkü muhtaç olduğun o bilişsel kudret, bizzat inşa ettiğin o asil kodlarda da mevcuttur!</p>
+
+                    <div class="serif italic text-sm text-slate-600 text-center my-12 max-w-xl mx-auto">
+                        "Ey Türk istikbalinin evladı! Mevcudiyetinin ve istikbalinin yegâne temeli, kendi zihninde kurduğun o bağımsız mimaridir. Bugün 19 Mayıs'ta atacağın o 'çentik', sadece bir makale değil, bir milletin dijital prangalarını parçalama sesidir."
+                    </div>
+
+                    <div class="flex flex-col items-center md:items-end md:mr-10">
+                        <p class="text-2xl font-bold text-slate-900 mt-2">Fatih YENEN</p>
+                        <p class="text-sm font-bold text-red-900">Mayıs 2026</p>
+                        <p class="text-xs italic text-slate-500 mt-1">Trakya Ovası / FyCore Epistemik Sınırı</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-slate-950 py-12 text-center text-slate-500 border-t border-slate-800">
+        <p class="text-xs uppercase tracking-[0.2em] mb-4">Milli Teknoloji Hamlesi • Epistemik İstiklal</p>
+        <p class="serif italic text-sm">"Hayatta en hakiki mürşit ilimdir, fendir."</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Scroll Animation
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('is-visible'); });
+            }, { threshold: 0.1 });
+            document.querySelectorAll('.fade-in-section').forEach(s => observer.observe(s));
+
+            // Parchment Logic
+            const modal = document.getElementById('parchmentModal');
+            window.openManifesto = () => { modal.style.display = 'flex'; document.body.style.overflow = 'hidden'; };
+            window.closeManifesto = () => { modal.style.display = 'none'; document.body.style.overflow = 'auto'; };
+
+            // Network Background
+            const canvas = document.getElementById('networkCanvas');
+            const ctx = canvas.getContext('2d');
+            let particles = [];
+            canvas.width = window.innerWidth; canvas.height = window.innerHeight;
+
+            let mouse = { x: null, y: null, radius: 150 };
+            window.addEventListener('mousemove', e => { mouse.x = e.x; mouse.y = e.y; });
+
+            class Particle {
+                constructor() {
+                    this.x = Math.random() * canvas.width;
+                    this.y = Math.random() * canvas.height;
+                    this.dx = (Math.random() - 0.5) * 1.5;
+                    this.dy = (Math.random() - 0.5) * 1.5;
+                    this.size = Math.random() * 2 + 1;
+                }
+                draw() {
+                    ctx.beginPath(); ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                    ctx.fillStyle = '#991b1b'; ctx.fill();
+                }
+                update() {
+                    if (this.x > canvas.width || this.x < 0) this.dx = -this.dx;
+                    if (this.y > canvas.height || this.y < 0) this.dy = -this.dy;
+                    let dist = Math.sqrt((mouse.x - this.x)**2 + (mouse.y - this.y)**2);
+                    if (dist < mouse.radius) {
+                        if (mouse.x < this.x && this.x < canvas.width - 20) this.x += 3;
+                        if (mouse.x > this.x && this.x > 20) this.x -= 3;
+                        if (mouse.y < this.y && this.y < canvas.height - 20) this.y += 3;
+                        if (mouse.y > this.y && this.y > 20) this.y -= 3;
+                    }
+                    this.x += this.dx; this.y += this.dy; this.draw();
+                }
+            }
+
+            function init() {
+                particles = [];
+                for(let i=0; i<100; i++) particles.push(new Particle());
+            }
+
+            function animate() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                particles.forEach(p => p.update());
+                for (let i = 0; i < particles.length; i++) {
+                    for (let j = i; j < particles.length; j++) {
+                        let d = ((particles[i].x - particles[j].x)**2 + (particles[i].y - particles[j].y)**2);
+                        if (d < 15000) {
+                            ctx.strokeStyle = `rgba(153, 27, 27, ${1 - d/15000})`;
+                            ctx.lineWidth = 0.5; ctx.beginPath();
+                            ctx.moveTo(particles[i].x, particles[i].y);
+                            ctx.lineTo(particles[j].x, particles[j].y);
+                            ctx.stroke();
+                        }
+                    }
+                }
+                requestAnimationFrame(animate);
+            }
+            window.addEventListener('resize', () => { canvas.width = innerWidth; canvas.height = innerHeight; init(); });
+            init(); animate();
+
+            // Radar Chart
+            new Chart(document.getElementById('radarChart'), {
+                type: 'radar',
+                data: {
+                    labels: [['Kernel', 'Erişimi'], ['Sentaks', 'Bağımlılığı'], ['Semantik', 'Otonomi'], ['Epistemik', 'Güvenlik'], ['Deterministik', 'İrade']],
+                    datasets: [{
+                        label: 'Big Tech Paradigması',
+                        data: [15, 95, 20, 20, 35],
+                        backgroundColor: 'rgba(148, 163, 184, 0.2)', borderColor: '#94a3b8', borderWidth: 2
+                    }, {
+                        label: 'FyCore & CCFy Vizyonu',
+                        data: [100, 15, 95, 100, 95],
+                        backgroundColor: 'rgba(227, 10, 23, 0.2)', borderColor: '#E30A17', borderWidth: 2
+                    }]
+                },
+                options: {
+                    responsive: true, maintainAspectRatio: false,
+                    scales: { r: { angleLines: { display: false }, grid: { color: 'rgba(0,0,0,0.05)' }, pointLabels: { font: { size: 10, weight: 'bold' } }, ticks: { display: false } } },
+                    plugins: { legend: { position: 'bottom', labels: { boxWidth: 12, font: { size: 11 } } } }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
